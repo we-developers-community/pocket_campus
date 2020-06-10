@@ -1,10 +1,10 @@
-## frontend
+## Frontend
 
 ### Screens
 
 ### Providers
 
-## backend
+## Backend
 
 ### Models
 
