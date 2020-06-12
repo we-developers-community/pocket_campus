@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_college/screens/canteen_screen/canteen_screen.dart';
+import 'package:pocket_college/ui/canteen/canteen_screen.dart';
 
-import './screens/home_screen.dart';
+import './ui/home/home_screen.dart';
 
 void main() {
   runApp(MyApp());
