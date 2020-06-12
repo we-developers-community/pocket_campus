@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_college/screens/canteen_screen/canteen_screen.dart';
 
 import './screens/home_screen.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Pocket Campus',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
