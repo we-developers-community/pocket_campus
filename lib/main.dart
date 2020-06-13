@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import './ui/home/home_screen.dart';
-// import './ui/canteen/canteen_screen.dart';
-// import './ui/event_list/event_list_screen.dart';
+import './ui/canteen/canteen_screen.dart';
+import './ui/event_list/event_list_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
       home: HomeScreen(),
       routes: {
         HomeScreen.routeName: (ctx) => HomeScreen(),
-        
+        CanteenDetails.routeName: (ctx) => CanteenDetails(),
+        EventListScreen.routeName: (ctx) => EventListScreen(),
       },
     );
   }
