@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_college/ui/canteen/canteen_screen.dart';
+import 'package:flutter/services.dart';
 
 import './ui/home/home_screen.dart';
+// import './ui/canteen/canteen_screen.dart';
+// import './ui/event_list/event_list_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(MyApp());
+    //runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -18,15 +25,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark
-      ),
+      darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: ThemeMode.dark,
       home: HomeScreen(),
       routes: {
-        HomeScreen.routeName : (ctx) => HomeScreen(),
+        HomeScreen.routeName: (ctx) => HomeScreen(),
+        
       },
     );
   }
 }
-

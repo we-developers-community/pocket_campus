@@ -78,6 +78,8 @@ List<Widget> generateFoodItems(Map<String, Map> foodItems) {
 
 // The Main widget
 class CanteenDetails extends StatelessWidget {
+  static const routeName = '/canteen';
+  
   @override
   Widget build(BuildContext context) {
 
