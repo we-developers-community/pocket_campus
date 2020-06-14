@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeChanger>(
-      create: (_) => ThemeChanger(ThemeData.dark()),
+      create: (_) => ThemeChanger(ThemeMode.light),
+      child: MaterialWidget(),
     );
   }
 }
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
 class MaterialWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var theme = Provider.of<ThemeChanger>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pocket Campus',
@@ -38,7 +40,7 @@ class MaterialWidget extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       darkTheme: ThemeData(brightness: Brightness.dark),
-      themeMode: ThemeMode.dark,
+      themeMode: theme.getTheme(),
       home: HomeScreen(),
       routes: {
         HomeScreen.routeName: (ctx) => HomeScreen(),
