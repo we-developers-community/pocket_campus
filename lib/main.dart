@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+
+import './providers/theme_changer.dart';
 
 import './ui/home/home_screen.dart';
 import './ui/canteen/canteen_screen.dart';
@@ -16,6 +19,15 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<ThemeChanger>(
+      create: (_) => ThemeChanger(ThemeData.dark()),
+    );
+  }
+}
+
+class MaterialWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
