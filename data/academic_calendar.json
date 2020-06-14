@@ -1,0 +1,58 @@
+[
+	{
+		"id": 8,
+		"name": "Semester 8",
+		"session_start": "2020-01-02",
+		"theory_exam": {
+			"start_date": "2020-04-25",
+			"end_date": "2020-05-06",
+		},
+		"practical_exam": {
+			"start_date": "2020-05-07",
+			"end_date": "2020-05-17",
+		},
+		"result_declaration": "2020-06-21"
+	},
+	{
+		"id": 6,
+		"name": "Semester 6",
+		"session_start": "2020-01-02",
+		"theory_exam": {
+			"start_date": "2020-05-11",
+			"end_date": "2020-05-22",
+		},
+		"practical_exam": {
+			"start_date": "2020-05-23",
+			"end_date": "2020-06-02",
+		},
+		"result_declaration": "2020-07-06"
+	},
+	{
+		"id": 4,
+		"name": "Semester 4",
+		"session_start": "2020-01-15",
+		"theory_exam": {
+			"start_date": "2020-05-12",
+			"end_date": "2020-05-23",
+		},
+		"practical_exam": {
+			"start_date": "2020-05-24",
+			"end_date": "2020-06-04",
+		},
+		"result_declaration": "2020-07-06"
+	},
+	{
+		"id": 2,
+		"name": "Semester 2",
+		"session_start": "2020-01-27",
+		"theory_exam": {
+			"start_date": "2020-05-27",
+			"end_date": "2020-06-24",
+		},
+		"practical_exam": {
+			"start_date": "2020-06-25",
+			"end_date": "2020-07-05",
+		},
+		"result_declaration": "2020-08-07"
+	},
+]
