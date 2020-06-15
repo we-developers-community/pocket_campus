@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool darktheme = false;
   @override
   Widget build(BuildContext context) {
-    final gridDetails = Provider.of<GridDetails>(context, listen: false);
+    //final gridDetails = Provider.of<GridDetails>(context, listen: false);
 
     final mediaQuery = MediaQuery.of(context);
     var themeChanger = Provider.of<ThemeChanger>(context);
@@ -27,8 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: <Widget>[
           IconButton(
             icon: darktheme
-                ? Icon(Icons.wb_incandescent, color: Colors.purple,)
-                : Icon(Icons.wb_incandescent, color: Colors.yellowAccent,),
+                ? Icon(
+                    Icons.wb_incandescent,
+                    color: Colors.purple,
+                  )
+                : Icon(
+                    Icons.wb_incandescent,
+                    color: Colors.yellowAccent,
+                  ),
             onPressed: () {
               if (darktheme == false) {
                 themeChanger.setTheme(ThemeMode.dark);
@@ -61,27 +67,40 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU', fit: BoxFit.fill,),
+                child: Image.network(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU',
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
             Container(
               height: mediaQuery.size.height * 0.35,
               width: mediaQuery.size.width,
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-              child: GridView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                itemCount: gridDetails.getText().length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  childAspectRatio: 1 / 1,
-                  crossAxisSpacing: 30,
-                  mainAxisSpacing: 30,
-                ),
-                itemBuilder: (ctx, item) => Container(
-                  child: Text(''),
-                  decoration: BoxDecoration(
-                    color: Colors.blue.shade400,
-                    borderRadius: BorderRadius.circular(15),
+              child: Consumer<GridDetails>(
+                builder: (context, gridDetails, child) => GridView.builder(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  itemCount: gridDetails.texts.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    childAspectRatio: 1 / 1,
+                    crossAxisSpacing: 30,
+                    mainAxisSpacing: 30,
+                  ),
+                  itemBuilder: (ctx, index) => Container(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(gridDetails.icons[index]),
+                        Text('${gridDetails.texts[index]}'),
+                      ],
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.blue.shade400,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                   ),
                 ),
               ),
