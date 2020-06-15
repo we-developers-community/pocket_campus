@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 import '../../providers/theme_changer.dart';
 
@@ -16,15 +18,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     var themeChanger = Provider.of<ThemeChanger>(context);
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Pocket Campus'),
         actions: <Widget>[
           IconButton(
             icon: darktheme
-                ? Icon(Icons.brightness_low)
-                : Icon(Icons.brightness_high),
+                ? Icon(Icons.wb_incandescent, color: Colors.purple,)
+                : Icon(Icons.wb_incandescent, color: Colors.yellowAccent,),
             onPressed: () {
               if (darktheme == false) {
                 themeChanger.setTheme(ThemeMode.dark);
@@ -55,7 +57,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.grey.shade800,
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: null,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU', fit: BoxFit.fill,),
+              ),
             ),
             Container(
               height: mediaQuery.size.height * 0.35,
