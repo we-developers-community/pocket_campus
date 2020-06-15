@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import './grid_details.dart';
 
-import '../../providers/theme_changer.dart';
+import '../../theme_provider/theme_changer.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
@@ -16,6 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
   bool darktheme = false;
   @override
   Widget build(BuildContext context) {
+    final gridDetails = Provider.of<GridDetails>(context, listen: false);
+
     final mediaQuery = MediaQuery.of(context);
     var themeChanger = Provider.of<ThemeChanger>(context);
 
@@ -68,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               child: GridView.builder(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                itemCount: 6,
+                itemCount: gridDetails.getText().length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   childAspectRatio: 1 / 1,
@@ -78,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (ctx, item) => Container(
                   child: Text(''),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade800,
+                    color: Colors.blue.shade400,
                     borderRadius: BorderRadius.circular(15),
                   ),
                 ),
