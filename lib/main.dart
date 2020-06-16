@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+
+import './providers/theme_changer.dart';
 
 import './ui/communities/communities_detail.dart';
 import './ui/communities/communities_list.dart';
@@ -21,6 +24,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    return ChangeNotifierProvider<ThemeChanger>(
+      create: (_) => ThemeChanger(ThemeMode.light),
+      child: MaterialWidget(),
+    );
+  }
+}
+
+class MaterialWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var theme = Provider.of<ThemeChanger>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pocket Campus',
@@ -32,16 +46,13 @@ class MyApp extends StatelessWidget {
         buttonColor: Colors.blue,
         primaryColorDark: Colors.blue,
       ),
-
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.blue,
         ),
       ),
-
-      themeMode: ThemeMode.dark,
-
+      themeMode: theme.getTheme(),
       home: HomeScreen(),
       routes: {
         HomeScreen.routeName: (ctx) => HomeScreen(),
