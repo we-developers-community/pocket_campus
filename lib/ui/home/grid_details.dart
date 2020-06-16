@@ -13,7 +13,7 @@ class GridDetails with ChangeNotifier {
     Icons.apps,
     Icons.map,
   ];
-  List<String> _class = [
+  List<String> _className = [
     CommunityListScreen.routeName,
     CanteenDetails.routeName,
     CommunityListScreen.routeName,
@@ -36,7 +36,7 @@ class GridDetails with ChangeNotifier {
   }
 
   get className {
-    return _class;
+    return _className;
   }
 
   get texts {

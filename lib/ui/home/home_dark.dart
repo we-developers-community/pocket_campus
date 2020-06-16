@@ -39,25 +39,29 @@ class HomeDark extends StatelessWidget {
                 crossAxisSpacing: 30,
                 mainAxisSpacing: 30,
               ),
-              itemBuilder: (ctx, index) => Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.grey.shade900
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(
-                      gridDetails.icons[index],
-                      color: Colors.white,
-                    ),
-                    Text(
-                      '${gridDetails.texts[index]}',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ],
+              itemBuilder: (ctx, index) => InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed(gridDetails.className[index]);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.grey.shade900),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        gridDetails.icons[index],
+                        color: Colors.white,
+                      ),
+                      Text(
+                        '${gridDetails.texts[index]}',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
