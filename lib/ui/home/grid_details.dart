@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../canteen/canteen_screen.dart';
+import '../communities/communities_list.dart';
+import '../event_list/event_list_screen.dart';
+
 class GridDetails with ChangeNotifier {
   List<IconData> _icon = [
     Icons.library_books,
@@ -8,11 +12,17 @@ class GridDetails with ChangeNotifier {
     Icons.event,
     Icons.apps,
     Icons.map,
+  ];
+  List<String> _class = [
+    CommunityListScreen.routeName,
+    CanteenDetails.routeName,
+    CommunityListScreen.routeName,
+    EventListScreen.routeName,
+    CommunityListScreen.routeName,
+    CommunityListScreen.routeName,
+  ];
 
-  ] ;
-  List<String> _url;
-
-  List<String> _text =[
+  List<String> _text = [
     'Academics',
     'Canteen',
     'Communities',
@@ -25,11 +35,11 @@ class GridDetails with ChangeNotifier {
     return _icon;
   }
 
-  get urls {
-    return _url;
+  get className {
+    return _class;
   }
 
-   get texts {
+  get texts {
     return _text;
   }
 }

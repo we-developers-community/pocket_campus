@@ -41,27 +41,32 @@ class HomeLight extends StatelessWidget {
                 crossAxisSpacing: 30,
                 mainAxisSpacing: 30,
               ),
-              itemBuilder: (ctx, index) => Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  gradient: LinearGradient(
-                    colors: [Colors.blue, Colors.indigoAccent],
+              itemBuilder: (ctx, index) => InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed(gridDetails.className[index]);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    gradient: LinearGradient(
+                      colors: [Colors.blue, Colors.indigoAccent],
+                    ),
                   ),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(
-                      gridDetails.icons[index],
-                      color: Colors.white,
-                    ),
-                    Text(
-                      '${gridDetails.texts[index]}',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ],
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        gridDetails.icons[index],
+                        color: Colors.white,
+                      ),
+                      Text(
+                        '${gridDetails.texts[index]}',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
