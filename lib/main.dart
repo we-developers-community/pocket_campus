@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import './theme_provider/theme_changer.dart';
 
+import './ui/resources/resources.dart';
 import './ui/communities/communities_detail.dart';
 import './ui/communities/communities_list.dart';
 import './ui/home/home_screen.dart';
@@ -62,6 +63,7 @@ class MaterialWidget extends StatelessWidget {
           CanteenDetails.routeName: (ctx) => CanteenDetails(),
           EventListScreen.routeName: (ctx) => EventListScreen(),
           CommunityListScreen.routeName: (ctx) => CommunityListScreen(),
+          ResourcesScreen.routeName: (ctx) => ResourcesScreen(),
         },
       ),
     );

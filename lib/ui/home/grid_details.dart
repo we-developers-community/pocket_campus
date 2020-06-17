@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_college/ui/resources/resources.dart';
 
 import '../canteen/canteen_screen.dart';
 import '../communities/communities_list.dart';
@@ -18,7 +19,7 @@ class GridDetails with ChangeNotifier {
     CanteenDetails.routeName,
     CommunityListScreen.routeName,
     EventListScreen.routeName,
-    CommunityListScreen.routeName,
+    ResourcesScreen.routeName,
     CommunityListScreen.routeName,
   ];
 

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pocket_college/helpers.dart';
 
-
 class CommunityDetailScreen extends StatelessWidget {
-
   final Map communityData;
 
-  CommunityDetailScreen({Key key, @required this.communityData}) : super(key: key);
+  CommunityDetailScreen({Key key, @required this.communityData})
+      : super(key: key);
 
   static const routeName = '/community-detail';
 
@@ -65,9 +64,7 @@ class CommunityDetailScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          launchURL(communityData['joining_url']);
-        },
+        onPressed: () => launchURL(communityData['joining_url']),
         icon: Icon(Icons.group_add),
         label: Text("Join"),
       ),

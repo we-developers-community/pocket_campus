@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pocket_college/ui/communities/communities_detail.dart';
 import 'package:pocket_college/helpers.dart';
 
-
 List<Map> communitiesData = [
   {
     'name': 'Developers Community',
@@ -21,7 +20,6 @@ List<Map> communitiesData = [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat risus nulla, sed luctus augue auctor nec. In sagittis blandit arcu in volutpat. Quisque tortor justo, vulputate et felis ut, vestibulum posuere ex. Proin semper mauris vel urna elementum convallis.',
   },
 ];
-
 
 Widget getCommunityListElementWidget(
   Map communityData,
@@ -81,9 +79,7 @@ Widget getCommunityListElementWidget(
               label: Text("Learn more"),
             ),
             RaisedButton.icon(
-              onPressed: () {
-                launchURL(communityData['joining_url']);
-              },
+              onPressed: () => launchURL(communityData['joining_url']),
               icon: Icon(Icons.group_add),
               label: Text("Join"),
             ),
@@ -114,7 +110,6 @@ List<Widget> generateCommunitiesList(
 }
 
 class CommunityListScreen extends StatelessWidget {
-
   static const routeName = '/community-list';
 
   @override
