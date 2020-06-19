@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Event with ChangeNotifier {
+class Events with ChangeNotifier {
   String title;
   String description;
   String venue;
   DateTime date;
 
-  Event({this.title, this.description, this.date, this.venue});
+  Events({this.title, this.description, this.date, this.venue});
 
-  List<Event> _eventList = [
-    Event(
+  List<Events> _eventList = [
+    Events(
       title: 'Samvid hackathon',
       description: '',
       venue: '',
@@ -17,7 +17,7 @@ class Event with ChangeNotifier {
     ),
   ];
 
-  List<Event> get eventList {
+  List<Events> get eventList {
     return _eventList;
   }
 }
