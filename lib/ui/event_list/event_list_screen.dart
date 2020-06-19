@@ -22,8 +22,15 @@ class EventListScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.event),
+        //leading: Icon(Icons.event),
         title: Text('Events'),
+        // actions: <Widget>[
+        //   Padding(
+        //     padding: const EdgeInsets.symmetric( horizontal: 20.0),
+        //     child: Icon(Icons.event, size: 26,),
+        //   ),
+        // ],
+        automaticallyImplyLeading: true,
       ),
       body: ListView(
         children: <Widget>[
@@ -38,16 +45,16 @@ class EventListScreen extends StatelessWidget {
                 print('Hello World');
               },
               child: Card(
-                elevation: 7,
+                elevation: 4,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0),
+                  borderRadius: BorderRadius.circular(15.0),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
                       borderRadius:
-                          BorderRadius.vertical(top: Radius.circular(7)),
+                          BorderRadius.vertical(top: Radius.circular(15)),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         child: Image(
