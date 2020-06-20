@@ -3,7 +3,7 @@ import 'package:pocket_college/ui/resources/resources.dart';
 
 import '../canteen/canteen_screen.dart';
 import '../communities/communities_list.dart';
-import '../event_list/event_list_screen.dart';
+import '../events/event_list_screen.dart';
 
 class GridDetails with ChangeNotifier {
   List<IconData> _icon = [

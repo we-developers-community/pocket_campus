@@ -9,8 +9,8 @@ import './ui/communities/communities_list.dart';
 import './ui/home/home_screen.dart';
 import './ui/home/grid_details.dart';
 import './ui/canteen/canteen_screen.dart';
-import './ui/event_list/event_list_screen.dart';
-import './ui/event_list/events.dart';
+import './ui/events/event_list_screen.dart';
+import './ui/events/events.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,9 +39,7 @@ class MaterialWidget extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: GridDetails(),
         ),
-        ChangeNotifierProvider.value(
-          value: Events(),
-        ),
+        // 
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

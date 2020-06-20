@@ -3,16 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:add_2_calendar/add_2_calendar.dart';
 
 class EventListScreen extends StatelessWidget {
-
-  // Dummy event details
-  final Event event = Event(
-    title: 'Samvid Hackathon 3.0',
-    startDate: DateTime.utc(2020, 6, 13),
-    endDate: DateTime.utc(2020, 6, 13),
-    allDay: true,
-    description: 'Annual Hackathon at SSTC Bhilai.',
-  );
-
   static const routeName = '/events';
   
   @override
@@ -69,9 +59,9 @@ class EventListScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(event.title),
+                          Text(''),//event.title),
                           SizedBox(height: 5),
-                          Text(event.description),
+                          Text(''),//event.description),
                           SizedBox(height: 5),
                           Row(
                             children: <Widget>[
@@ -93,7 +83,7 @@ class EventListScreen extends StatelessWidget {
                               FlatButton(
                                 onPressed: () {
                                   // add event to calendar
-                                  Add2Calendar.addEvent2Cal(event);
+                                  //Add2Calendar.addEvent2Cal(event);
                                 },
                                 child: Text('Add to Calendar'),
                               )
