@@ -31,7 +31,7 @@ class EventDetailScreen extends StatelessWidget {
                 height: 300,
                 width: 300,
                 child: Text('description'),
-              )
+              ),
             ],
           ),
         ),

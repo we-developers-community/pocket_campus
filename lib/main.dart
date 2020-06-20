@@ -39,7 +39,9 @@ class MaterialWidget extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: GridDetails(),
         ),
-        //
+        ChangeNotifierProvider.value(
+          value: EventList(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

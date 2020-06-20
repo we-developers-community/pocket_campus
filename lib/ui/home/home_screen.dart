@@ -135,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderRadius: BorderRadius.circular(15),
                 child: ColorFiltered(
                   colorFilter: darktheme
-                      ? ColorFilter.mode(Colors.grey, BlendMode.saturation)
+                      ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
                       : ColorFilter.mode(Colors.white, BlendMode.darken),
                   child: Image.network(
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU',
