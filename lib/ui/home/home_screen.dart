@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: darktheme
                 ? Icon(
                     Icons.wb_incandescent,
-                    color: Colors.purple,
+                    color: Colors.grey[400],
                   )
                 : Icon(
                     Icons.wb_incandescent,
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderRadius: BorderRadius.circular(15),
                 child: ColorFiltered(
                   colorFilter: darktheme
-                      ? ColorFilter.mode(Colors.white, BlendMode.color)
+                      ? ColorFilter.mode(Colors.grey, BlendMode.saturation)
                       : ColorFilter.mode(Colors.white , BlendMode.darken),
                   child: Image.network(
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU',
@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(15),
                         gradient: LinearGradient(
                           colors: darktheme
-                              ? [Colors.grey.shade900, Colors.grey.shade900]
+                              ? [Colors.grey.shade700, Colors.grey.shade800]
                               : [Colors.blue, Colors.indigoAccent],
                         ),
                       ),
