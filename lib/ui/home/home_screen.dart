@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:pocket_college/helpers.dart';
 import '../../theme_provider/theme_changer.dart';
 
 import './grid_details.dart';
@@ -47,7 +47,71 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               }
             },
-          )
+          ),
+          IconButton(
+            icon: Icon(Icons.info_outline),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext ctx) {
+                  return AboutDialog(
+                    applicationName: "Pocket Campus",
+                    applicationLegalese: "Copyright 2020",
+                    applicationVersion: "v1.0",
+                    
+                    children: <Widget>[
+                      SizedBox(height: 15),
+
+                      Divider(color: Theme.of(context).accentColor,),
+                      SizedBox(height: 15),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(22, 0, 0, 0),
+                        child: Row(
+                          children: <Widget>[
+                            Text("Get the code"),
+                            GestureDetector(
+                              child: Text(
+                                " here",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              onTap: () {
+                                launchURL(
+                                    "https://github.com/we-developers-community/pocket_college");
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 15),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(22, 0, 0, 0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "Made by our lovely",
+                            ),
+                            GestureDetector(
+                              child: Text(
+                                " contributors",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              onTap: () => launchURL(
+                                  "https://github.com/we-developers-community/pocket_college/graphs/contributors"),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          ),
         ],
       ),
       body: Container(
@@ -72,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ColorFiltered(
                   colorFilter: darktheme
                       ? ColorFilter.mode(Colors.grey, BlendMode.saturation)
-                      : ColorFilter.mode(Colors.white , BlendMode.darken),
+                      : ColorFilter.mode(Colors.white, BlendMode.darken),
                   child: Image.network(
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU',
                     fit: BoxFit.fill,

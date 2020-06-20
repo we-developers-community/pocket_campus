@@ -45,6 +45,7 @@ class MaterialWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Pocket Campus',
         theme: ThemeData(
+          accentColor: Colors.grey,
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           primaryColor: Colors.blue,
@@ -52,6 +53,7 @@ class MaterialWidget extends StatelessWidget {
           primaryColorDark: Colors.blue,
         ),
         darkTheme: ThemeData(
+          accentColor: Colors.grey[100],
           brightness: Brightness.dark,
           floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: Colors.blue,
