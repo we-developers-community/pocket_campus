@@ -58,11 +58,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     applicationName: "Pocket Campus",
                     applicationLegalese: "Copyright 2020",
                     applicationVersion: "v1.0",
-                    
                     children: <Widget>[
                       SizedBox(height: 15),
-
-                      Divider(color: Theme.of(context).accentColor,),
+                      Divider(
+                        color: Theme.of(context).accentColor,
+                      ),
                       SizedBox(height: 15),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(22, 0, 0, 0),

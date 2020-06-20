@@ -39,13 +39,13 @@ class MaterialWidget extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: GridDetails(),
         ),
-        // 
+        //
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Pocket Campus',
         theme: ThemeData(
-          accentColor: Colors.grey,
+          accentColor: Colors.blue,
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           primaryColor: Colors.blue,
@@ -53,7 +53,7 @@ class MaterialWidget extends StatelessWidget {
           primaryColorDark: Colors.blue,
         ),
         darkTheme: ThemeData(
-          accentColor: Colors.grey[100],
+          accentColor: Colors.blue[200],
           brightness: Brightness.dark,
           floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: Colors.blue,
