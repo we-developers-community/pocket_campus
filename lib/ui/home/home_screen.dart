@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 : Icon(
                     Icons.wb_incandescent,
-                    color: Colors.yellowAccent,
+                    color: Colors.yellowAccent.shade100,
                   ),
             onPressed: () {
               if (darktheme == false) {
