@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_college/ui/events/event_detail_screen.dart';
 import 'package:provider/provider.dart';
 
 import './events.dart';
@@ -25,22 +26,52 @@ class EventListScreen extends StatelessWidget {
           //     child: Icon(Icons.event, size: 26,),
           //   ),
           // ],
-          automaticallyImplyLeading: true,
+          //automaticallyImplyLeading: true,
         ),
         body: Container(
           child: ListView.builder(
             itemCount: events.length,
-            itemBuilder: (ctx, index) => Container(
-                child: Column(
-              children: <Widget>[
-                ClipRRect(
-                  child: Image.network(''),
-                ),
-                Container(
-                  child: Text(''),
-                ),
-              ],
-            )),
+            itemBuilder: (ctx, index) => Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.of(context)
+                      .pushNamed(EventDetailScreen.routeName, arguments: {
+                    'id': events[index].id,
+                  });
+                },
+                child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    elevation: 4,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        ClipRRect(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(15)),
+                          child: Hero(
+                            tag: events[index].id,
+                            child: Image.network(
+                              '${events[index].url}',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            '${events[index].title}',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
+            ),
           ),
         ));
   }

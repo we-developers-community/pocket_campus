@@ -16,10 +16,9 @@ class EventList with ChangeNotifier{
     EventDetail(
       id:'PCE1',
       title: 'Samvid hackathon',
-      description: '',
-      url:'',
-      venue: '',
-      
+      description: 'this is adummy data',
+      url:'https://secureservercdn.net/160.153.137.99/v4u.ca9.myftpupload.com/wp-content/uploads/Hack-A-Thon-2020-960x607.jpg',
+      venue: 'SSTC Central Library',
     ),
   ];
 
