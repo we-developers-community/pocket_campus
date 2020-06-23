@@ -35,10 +35,12 @@ class EventListScreen extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: InkWell(
                 onTap: () {
-                  Navigator.of(context)
-                      .pushNamed(EventDetailScreen.routeName, arguments: {
-                    'id': events[index].id,
-                  });
+                  Navigator.of(context).pushNamed(
+                    EventDetailScreen.routeName,
+                    // arguments: {
+                    //   'id': events[index].id,
+                    // },
+                  );
                 },
                 child: Card(
                     shape: RoundedRectangleBorder(
@@ -47,19 +49,29 @@ class EventListScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        ClipRRect(
-                          borderRadius:
-                              BorderRadius.vertical(top: Radius.circular(15)),
-                          child: Hero(
-                            tag: events[index].id,
-                            child: Image.network(
-                              '${events[index].url}',
-                              fit: BoxFit.cover,
+                        SizedBox(
+                          height: mediaQuery.size.height * 0.25,
+                          child: ClipRRect(
+                            borderRadius:
+                                BorderRadius.vertical(top: Radius.circular(15)),
+                            child: Hero(
+                              tag: events[index].id,
+                              child: Image.network(
+                                '${events[index].url}',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
                         Container(
+                          width: double.maxFinite,
                           padding: EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.vertical(
+                              bottom: Radius.circular(15),
+                            ),
+                            color: Colors.grey
+                          ),
                           child: Text(
                             '${events[index].title}',
                             style: TextStyle(
