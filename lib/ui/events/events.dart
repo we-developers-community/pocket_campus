@@ -25,6 +25,10 @@ class EventList with ChangeNotifier{
   List<EventDetail> get eventList {
     return _eventList;
   }
+
+  EventDetail findById(id) {
+    return _eventList.firstWhere((element) => element.id == id);
+  }
 }
 
 

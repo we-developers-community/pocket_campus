@@ -4,6 +4,7 @@ class EventDetailScreen extends StatelessWidget {
   static const routeName = '/event-detail';
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context).settings.arguments as String;
     return Scaffold(
         // appBar: AppBar(
         //    title: Text(''),
@@ -16,7 +17,7 @@ class EventDetailScreen extends StatelessWidget {
           flexibleSpace: FlexibleSpaceBar(
             title: Text(''),
             background: Hero(
-              tag: '',
+              tag: args,
               child: Image.network(
                 '',
                 fit: BoxFit.cover,
