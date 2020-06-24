@@ -37,9 +37,7 @@ class EventListScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).pushNamed(
                     EventDetailScreen.routeName,
-                    // arguments: {
-                    //   'id': events[index].id,
-                    // },
+                    arguments: events[index].id,
                   );
                 },
                 child: Card(
@@ -55,6 +53,7 @@ class EventListScreen extends StatelessWidget {
                             borderRadius:
                                 BorderRadius.vertical(top: Radius.circular(15)),
                             child: Hero(
+                              transitionOnUserGestures: true,
                               tag: events[index].id,
                               child: Image.network(
                                 '${events[index].url}',
@@ -67,11 +66,10 @@ class EventListScreen extends StatelessWidget {
                           width: double.maxFinite,
                           padding: EdgeInsets.all(15),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.vertical(
-                              bottom: Radius.circular(15),
-                            ),
-                            color: Colors.grey
-                          ),
+                              borderRadius: BorderRadius.vertical(
+                                bottom: Radius.circular(15),
+                              ),
+                              color: Colors.grey),
                           child: Text(
                             '${events[index].title}',
                             style: TextStyle(
