@@ -1,9 +1,16 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import './events.dart';
 
 class EventDetailScreen extends StatelessWidget {
   static const routeName = '/event-detail';
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context).settings.arguments as String;
+    var loadedEvent = Provider.of<EventList>(context).findById(args); 
     return Scaffold(
         // appBar: AppBar(
         //    title: Text(''),
@@ -16,7 +23,7 @@ class EventDetailScreen extends StatelessWidget {
           flexibleSpace: FlexibleSpaceBar(
             title: Text(''),
             background: Hero(
-              tag: '',
+              tag: loadedEvent.id,
               child: Image.network(
                 '',
                 fit: BoxFit.cover,

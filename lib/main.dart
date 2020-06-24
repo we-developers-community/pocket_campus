@@ -11,6 +11,7 @@ import './ui/home/grid_details.dart';
 import './ui/canteen/canteen_screen.dart';
 import './ui/events/event_list_screen.dart';
 import './ui/events/events.dart';
+import './ui/events/event_detail_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -67,6 +68,7 @@ class MaterialWidget extends StatelessWidget {
           HomeScreen.routeName: (ctx) => HomeScreen(),
           CanteenDetails.routeName: (ctx) => CanteenDetails(),
           EventListScreen.routeName: (ctx) => EventListScreen(),
+          EventDetailScreen.routeName: (ctx) => EventDetailScreen(),
           CommunityListScreen.routeName: (ctx) => CommunityListScreen(),
           ResourcesScreen.routeName: (ctx) => ResourcesScreen(),
         },

@@ -178,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(15),
                         gradient: LinearGradient(
                           colors: darktheme
-                              ? [Colors.grey.shade700, Colors.grey.shade800]
+                              ? [Colors.grey.shade800, Colors.grey.shade800]
                               : [Colors.blue, Colors.indigoAccent],
                         ),
                       ),
