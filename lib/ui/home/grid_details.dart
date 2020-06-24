@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_college/ui/campus_map/campus_map.dart';
 import 'package:pocket_college/ui/resources/resources.dart';
 
 import '../canteen/canteen_screen.dart';
@@ -20,7 +21,7 @@ class GridDetails with ChangeNotifier {
     CommunityListScreen.routeName,
     EventListScreen.routeName,
     ResourcesScreen.routeName,
-    CommunityListScreen.routeName,
+    CampusMapScreen.routeName,
   ];
 
   List<String> _text = [

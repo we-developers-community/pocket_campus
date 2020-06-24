@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pocket_college/ui/campus_map/campus_map.dart';
 import 'package:provider/provider.dart';
 
 import './theme_provider/theme_changer.dart';
@@ -71,6 +72,7 @@ class MaterialWidget extends StatelessWidget {
           EventDetailScreen.routeName: (ctx) => EventDetailScreen(),
           CommunityListScreen.routeName: (ctx) => CommunityListScreen(),
           ResourcesScreen.routeName: (ctx) => ResourcesScreen(),
+          CampusMapScreen.routeName: (ctx) => CampusMapScreen(),
         },
       ),
     );
