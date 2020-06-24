@@ -48,7 +48,7 @@ class EventListScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         SizedBox(
-                          height: mediaQuery.size.height * 0.25,
+                          height: mediaQuery.size.height * 0.3,
                           child: ClipRRect(
                             borderRadius:
                                 BorderRadius.vertical(top: Radius.circular(15)),

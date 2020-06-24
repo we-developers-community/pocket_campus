@@ -17,7 +17,9 @@ class EventDetailScreen extends StatelessWidget {
           pinned: true,
           flexibleSpace: FlexibleSpaceBar(
             centerTitle: false,
-            title: Text(loadedEvent.title,),
+            title: Text(
+              loadedEvent.title,
+            ),
             background: Hero(
               transitionOnUserGestures: true,
               tag: loadedEvent.id,
@@ -32,10 +34,43 @@ class EventDetailScreen extends StatelessWidget {
           delegate: SliverChildListDelegate(
             [
               Container(
-                height: 600,
                 margin: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-                width: 300,
-                child: Text(loadedEvent.description),
+                child: Text(
+                  'Description',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Text(
+                  loadedEvent.description,
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Text(
+                  'Venue',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                height: 500,
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Text(
+                  loadedEvent.venue,
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
               ),
             ],
           ),
