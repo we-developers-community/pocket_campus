@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:pocket_college/helpers.dart';
 import '../../theme_provider/theme_changer.dart';
@@ -30,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.grey[400],
                   )
                 : Icon(
+
                     Icons.wb_incandescent,
                     color: Colors.yellowAccent.shade100,
                   ),
@@ -90,18 +92,26 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            Text(
-                              "Made by our lovely",
-                            ),
-                            GestureDetector(
-                              child: Text(
-                                " contributors",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                ),
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    "Made by our lovely",
+                                  ),
+                                  GestureDetector(
+                                    child: Text(
+                                      " contributors",
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                    onTap: () => launchURL(
+                                        "https://github.com/we-developers-community/pocket_college/graphs/contributors"),
+                                  ),
+                                ],
                               ),
-                              onTap: () => launchURL(
-                                  "https://github.com/we-developers-community/pocket_college/graphs/contributors"),
                             ),
                           ],
                         ),
