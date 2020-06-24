@@ -31,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.grey[400],
                   )
                 : Icon(
-
                     Icons.wb_incandescent,
                     color: Colors.yellowAccent.shade100,
                   ),
@@ -57,6 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 context: context,
                 builder: (BuildContext ctx) {
                   return AboutDialog(
+                    applicationIcon: Image(
+                      image: NetworkImage("https://via.placeholder.com/50x50"),
+                    ),
                     applicationName: "Pocket Campus",
                     applicationLegalese: "Copyright 2020",
                     applicationVersion: "v1.0",
@@ -66,55 +68,49 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Theme.of(context).accentColor,
                       ),
                       SizedBox(height: 15),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(22, 0, 0, 0),
-                        child: Row(
-                          children: <Widget>[
-                            Text("Get the code"),
-                            GestureDetector(
-                              child: Text(
-                                " here",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                ),
+                      Row(
+                        children: <Widget>[
+                          Text("Get the code"),
+                          GestureDetector(
+                            child: Text(
+                              " here",
+                              style: TextStyle(
+                                color: Colors.blue,
                               ),
-                              onTap: () {
-                                launchURL(
-                                    "https://github.com/we-developers-community/pocket_college");
-                              },
                             ),
-                          ],
-                        ),
+                            onTap: () {
+                              launchURL(
+                                  "https://github.com/we-developers-community/pocket_college");
+                            },
+                          ),
+                        ],
                       ),
                       SizedBox(height: 15),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(22, 0, 0, 0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    "Made by our lovely",
-                                  ),
-                                  GestureDetector(
-                                    child: Text(
-                                      " contributors",
-                                      style: TextStyle(
-                                        color: Colors.blue,
-                                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  "Made by our lovely",
+                                ),
+                                GestureDetector(
+                                  child: Text(
+                                    " contributors",
+                                    style: TextStyle(
+                                      color: Colors.blue,
                                     ),
-                                    onTap: () => launchURL(
-                                        "https://github.com/we-developers-community/pocket_college/graphs/contributors"),
                                   ),
-                                ],
-                              ),
+                                  onTap: () => launchURL(
+                                      "https://github.com/we-developers-community/pocket_college/graphs/contributors"),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ],
                   );
