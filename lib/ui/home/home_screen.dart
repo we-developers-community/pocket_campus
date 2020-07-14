@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
                     : ColorFilter.mode(Colors.white, BlendMode.darken),
                 child: Carousel(
-                  boxFit: BoxFit.cover,
+                  boxFit: BoxFit.fill,
                   autoplay: true,
                   autoplayDuration: Duration(seconds: 10),
                   borderRadius: true,
@@ -153,7 +153,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     NetworkImage(
                         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU'),
                     NetworkImage(
-                        'https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg'),
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6h78lYHp1wlzfY7a-TG3d6_my8KCy-9I3Cg&usqp=CAU'),
+                    NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3ZeqJx4xeIkrsJW5EJKXFukGYhCnyYGKl6A&usqp=CAU'),
                   ],
                 ),
               ),
