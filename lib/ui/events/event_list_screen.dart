@@ -49,12 +49,14 @@ class EventListScreen extends StatelessWidget {
                       children: <Widget>[
                         SizedBox(
                           height: mediaQuery.size.height * 0.3,
+                          width: mediaQuery.size.width,
                           child: ClipRRect(
                             borderRadius:
                                 BorderRadius.vertical(top: Radius.circular(15)),
                             child: Hero(
                               transitionOnUserGestures: true,
                               tag: events[index].id,
+
                               child: Image.network(
                                 '${events[index].url}',
                                 fit: BoxFit.cover,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:pocket_college/theme_provider/theme_changer.dart';
 import 'package:provider/provider.dart';
 import 'package:pocket_college/helpers.dart';
 import '../../theme_provider/theme_changer.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 
 import './grid_details.dart';
 
@@ -129,27 +131,58 @@ class _HomeScreenState extends State<HomeScreen> {
               height: mediaQuery.size.height * 0.3,
               width: mediaQuery.size.width,
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: darktheme
-                      ? [Colors.grey.shade900, Colors.grey.shade900]
-                      : [Colors.blue, Colors.indigoAccent],
-                ),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: ColorFiltered(
-                  colorFilter: darktheme
-                      ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
-                      : ColorFilter.mode(Colors.white, BlendMode.darken),
-                  child: Image.network(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU',
-                    fit: BoxFit.fill,
-                  ),
+              child: ColorFiltered(
+                colorFilter: darktheme
+                    ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
+                    : ColorFilter.mode(Colors.white, BlendMode.darken),
+                child: Carousel(
+                  boxFit: BoxFit.cover,
+                  autoplay: true,
+                  autoplayDuration: Duration(seconds: 10),
+                  borderRadius: true,
+                  radius: Radius.circular(16),
+                  animationCurve: Curves.fastOutSlowIn,
+                  animationDuration: Duration(milliseconds: 2500),
+                  dotSize: 5.0,
+                  dotIncreasedColor: Colors.blue,
+                  dotBgColor: Colors.transparent,
+                  dotVerticalPadding: 10.0,
+                  showIndicator: true,
+                  indicatorBgPadding: 7.0,
+                  images: [
+                    NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU'),
+                    NetworkImage(
+                        'https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg'),
+                  ],
                 ),
               ),
             ),
+            // Container(
+            //   height: mediaQuery.size.height * 0.3,
+            //   width: mediaQuery.size.width,
+            //   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+            //   decoration: BoxDecoration(
+            //     gradient: LinearGradient(
+            //       colors: darktheme
+            //           ? [Colors.grey.shade900, Colors.grey.shade900]
+            //           : [Colors.blue, Colors.indigoAccent],
+            //     ),
+            //     borderRadius: BorderRadius.circular(15),
+            //   ),
+            //   child: ClipRRect(
+            //     borderRadius: BorderRadius.circular(15),
+            //     child: ColorFiltered(
+            //       colorFilter: darktheme
+            //           ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
+            //           : ColorFilter.mode(Colors.white, BlendMode.darken),
+            //       child: Image.network(
+            //         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU',
+            //         fit: BoxFit.fill,
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Container(
               height: mediaQuery.size.height * 0.35,
               width: mediaQuery.size.width,

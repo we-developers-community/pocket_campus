@@ -17,7 +17,7 @@ class EventList with ChangeNotifier{
       id:'PCE1',
       title:'Samvid hackathon',
       description: 'lorem ipsum dolor sit amet',
-      url:'https://secureservercdn.net/160.153.137.99/v4u.ca9.myftpupload.com/wp-content/uploads/Hack-A-Thon-2020-960x607.jpg',
+      url:'https://res.cloudinary.com/ideation/image/upload/dpr_auto,w_470/y02ng62qp1b8ec4k8w1g',
       venue: 'SSTC Central Library',
     ),
   ];
