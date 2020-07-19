@@ -23,6 +23,12 @@ class _HomeScreenState extends State<HomeScreen> {
     final mediaQuery = MediaQuery.of(context);
     var themeChanger = Provider.of<ThemeChanger>(context);
 
+    final carouselImgList = [
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6h78lYHp1wlzfY7a-TG3d6_my8KCy-9I3Cg&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3ZeqJx4xeIkrsJW5EJKXFukGYhCnyYGKl6A&usqp=CAU',
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Pocket Campus'),
@@ -133,34 +139,54 @@ class _HomeScreenState extends State<HomeScreen> {
               width: mediaQuery.size.width,
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               child: ColorFiltered(
-                colorFilter: darktheme
-                    ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
-                    : ColorFilter.mode(Colors.white, BlendMode.darken),
-                child: 
-                
-                // Carousel(
-                //   boxFit: BoxFit.fill,
-                //   autoplay: true,
-                //   autoplayDuration: Duration(seconds: 10),
-                //   borderRadius: true,
-                //   radius: Radius.circular(16),
-                //   animationCurve: Curves.fastOutSlowIn,
-                //   animationDuration: Duration(milliseconds: 2500),
-                //   dotSize: 5.0,
-                //   dotIncreasedColor: Colors.blue,
-                //   dotBgColor: Colors.transparent,
-                //   dotVerticalPadding: 10.0,
-                //   showIndicator: true,
-                //   indicatorBgPadding: 7.0,
-                //   images: [
-                //     NetworkImage(
-                //         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU'),
-                //     NetworkImage(
-                //         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6h78lYHp1wlzfY7a-TG3d6_my8KCy-9I3Cg&usqp=CAU'),
-                //     NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3ZeqJx4xeIkrsJW5EJKXFukGYhCnyYGKl6A&usqp=CAU'),
-                //   ],
-                // ),
-              ),
+                  colorFilter: darktheme
+                      ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
+                      : ColorFilter.mode(Colors.white, BlendMode.darken),
+                  child: CarouselSlider.builder(
+                    itemCount: carouselImgList.length,
+                    itemBuilder: (context, index1) => ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) => Container(
+                        height: mediaQuery.size.height * 0.3,
+                        width: mediaQuery.size.width * 0.9,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              carouselImgList[index1],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    options: CarouselOptions(
+                      autoPlay: true,
+                      scrollDirection: Axis.horizontal
+                    ),
+                  )
+                  // Carousel(
+                  //   boxFit: BoxFit.fill,
+                  //   autoplay: true,
+                  //   autoplayDuration: Duration(seconds: 10),
+                  //   borderRadius: true,
+                  //   radius: Radius.circular(16),
+                  //   animationCurve: Curves.fastOutSlowIn,
+                  //   animationDuration: Duration(milliseconds: 2500),
+                  //   dotSize: 5.0,
+                  //   dotIncreasedColor: Colors.blue,
+                  //   dotBgColor: Colors.transparent,
+                  //   dotVerticalPadding: 10.0,
+                  //   showIndicator: true,
+                  //   indicatorBgPadding: 7.0,
+                  //   images: [
+                  //     NetworkImage(
+                  //         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU'),
+                  //     NetworkImage(
+                  //         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6h78lYHp1wlzfY7a-TG3d6_my8KCy-9I3Cg&usqp=CAU'),
+                  //     NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3ZeqJx4xeIkrsJW5EJKXFukGYhCnyYGKl6A&usqp=CAU'),
+                  //   ],
+                  // ),
+                  ),
             ),
             // Container(
             //   height: mediaQuery.size.height * 0.3,
