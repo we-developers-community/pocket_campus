@@ -135,33 +135,36 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: <Widget>[
             Container(
-              height: mediaQuery.size.height * 0.3,
+              height: mediaQuery.size.height * 0.35,
               width: mediaQuery.size.width,
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+              margin: EdgeInsets.symmetric( vertical: 20),
               child: ColorFiltered(
                   colorFilter: darktheme
                       ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
                       : ColorFilter.mode(Colors.white, BlendMode.darken),
                   child: CarouselSlider.builder(
                     itemCount: carouselImgList.length,
-                    itemBuilder: (context, index1) => ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => Container(
-                        height: mediaQuery.size.height * 0.3,
-                        width: mediaQuery.size.width * 0.9,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              carouselImgList[index1],
-                            ),
+                    itemBuilder: (context, index1) => Container(
+                      height: mediaQuery.size.height * 0.3,
+                      width: mediaQuery.size.width,
+                      margin: EdgeInsets.symmetric(vertical:20, horizontal: 12),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            carouselImgList[index1],
                           ),
+                          fit: BoxFit.fill
                         ),
                       ),
                     ),
                     options: CarouselOptions(
                       autoPlay: true,
-                      scrollDirection: Axis.horizontal
+                      autoPlayCurve: Curves.easeInOut,
+                      scrollDirection: Axis.horizontal,
+                      aspectRatio: 5/3,
+                      autoPlayInterval: Duration(seconds: 5),
+                      autoPlayAnimationDuration: Duration(seconds: 3),
                     ),
                   )
                   // Carousel(
