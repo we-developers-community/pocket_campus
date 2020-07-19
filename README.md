@@ -4,7 +4,7 @@
 
 # Pocket Campus
 
-An application which brings your college to your pocket. You can see what's on your canteen's menu and when is the next workshop happening,  simultaneously.
+An application that brings your college to your pocket. You can see what's on your canteen's menu and when is the next workshop happening,  simultaneously.
 
 
 ## Download
