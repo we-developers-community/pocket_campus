@@ -58,8 +58,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 context: context,
                 builder: (BuildContext ctx) {
                   return AboutDialog(
-                    applicationIcon: Image(
-                      image: NetworkImage("https://via.placeholder.com/50x50"),
+                    applicationIcon: ClipRRect(
+                      borderRadius: BorderRadius.circular(45/2),
+                      child: Image.asset(
+                        "assets/icon.png",
+                        height: 45,
+                        width: 45,
+                      ),
                     ),
                     applicationName: "Pocket Campus",
                     applicationLegalese: "Copyright 2020",
@@ -72,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(height: 15),
                       Row(
                         children: <Widget>[
-                          Text("Get the code"),
+                          Text("💾 Get the code"),
                           GestureDetector(
                             child: Text(
                               " here",
@@ -97,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Text(
-                                  "Made by our lovely",
+                                  "✨ Made by our lovely",
                                 ),
                                 GestureDetector(
                                   child: Text(
@@ -154,7 +159,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU'),
                     NetworkImage(
                         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6h78lYHp1wlzfY7a-TG3d6_my8KCy-9I3Cg&usqp=CAU'),
-                    NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3ZeqJx4xeIkrsJW5EJKXFukGYhCnyYGKl6A&usqp=CAU'),
+                    NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3ZeqJx4xeIkrsJW5EJKXFukGYhCnyYGKl6A&usqp=CAU'),
                   ],
                 ),
               ),
