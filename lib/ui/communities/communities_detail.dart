@@ -18,15 +18,18 @@ class CommunityDetailScreen extends StatelessWidget {
           children: <Widget>[
             SizedBox(height: 20),
             Center(
-              child: Container(
-                width: 200,
-                height: 200,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                      communityData['image'],
+              child: Hero(
+                tag: communityData['name'],
+                child: Container(
+                  width: 200,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        communityData['image'],
+                      ),
                     ),
                   ),
                 ),
@@ -38,7 +41,7 @@ class CommunityDetailScreen extends StatelessWidget {
                 communityData['name'],
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 22,
                 ),
               ),
             ),

@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 builder: (BuildContext ctx) {
                   return AboutDialog(
                     applicationIcon: ClipRRect(
-                      borderRadius: BorderRadius.circular(45/2),
+                      borderRadius: BorderRadius.circular(45 / 2),
                       child: Image.asset(
                         "assets/icon.png",
                         height: 45,
@@ -84,10 +84,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(height: 15),
                       Row(
                         children: <Widget>[
-                          Text("💾 Get the code"),
+                          Text("💾 Project's"),
                           GestureDetector(
                             child: Text(
-                              " here",
+                              " Github",
                               style: TextStyle(
                                 color: Colors.blue,
                               ),
@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Text(
-                                  "✨ Made by our lovely",
+                                  "✨ Our",
                                 ),
                                 GestureDetector(
                                   child: Text(
@@ -142,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               height: mediaQuery.size.height * 0.35,
               width: mediaQuery.size.width,
-              margin: EdgeInsets.symmetric( vertical: 20),
+              margin: EdgeInsets.symmetric(vertical: 20),
               child: ColorFiltered(
                   colorFilter: darktheme
                       ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
@@ -152,22 +152,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context, index1) => Container(
                       height: mediaQuery.size.height * 0.3,
                       width: mediaQuery.size.width,
-                      margin: EdgeInsets.symmetric(vertical:20, horizontal: 12),
+                      margin:
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 12),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         image: DecorationImage(
-                          image: NetworkImage(
-                            carouselImgList[index1],
-                          ),
-                          fit: BoxFit.fill
-                        ),
+                            image: NetworkImage(
+                              carouselImgList[index1],
+                            ),
+                            fit: BoxFit.fill),
                       ),
                     ),
                     options: CarouselOptions(
                       autoPlay: true,
                       autoPlayCurve: Curves.easeInOut,
                       scrollDirection: Axis.horizontal,
-                      aspectRatio: 5/3,
+                      aspectRatio: 5 / 3,
                       autoPlayInterval: Duration(seconds: 5),
                       autoPlayAnimationDuration: Duration(seconds: 3),
                       enlargeCenterPage: true,
@@ -243,6 +243,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Container(
                       decoration: BoxDecoration(
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                            color: darktheme ? Colors.grey.shade900 : Colors.grey.shade500,
+                            blurRadius: 2.0,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
                         borderRadius: BorderRadius.circular(15),
                         gradient: LinearGradient(
                           colors: darktheme
@@ -259,9 +266,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             gridDetails.icons[index],
                             color: Colors.white,
                           ),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Text(
                             '${gridDetails.texts[index]}',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 11,
+                              // letterSpacing: 1.4,
+                            ),
                           ),
                         ],
                       ),

@@ -32,18 +32,21 @@ Widget getCommunityListElementWidget(
     ),
     child: Column(
       children: <Widget>[
-        ClipRRect(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
-          ),
-          child: AspectRatio(
-            aspectRatio: 16 / 9,
-            child: Image(
-              image: NetworkImage(
-                communityData['image'],
+        Hero(
+          tag: communityData['name'],
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+            ),
+            child: AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Image(
+                image: NetworkImage(
+                  communityData['image'],
+                ),
+                fit: BoxFit.cover,
               ),
-              fit: BoxFit.cover,
             ),
           ),
         ),
@@ -52,20 +55,25 @@ Widget getCommunityListElementWidget(
           title: Text(
             communityData['name'],
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 18,
             ),
           ),
           subtitle: Padding(
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Text(
               communityData['subtitle'],
-              style: TextStyle(fontSize: 17),
+              style: TextStyle(fontSize: 13),
             ),
           ),
         ),
         ButtonBar(
           children: <Widget>[
             FlatButton.icon(
+              // shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(20.0),
+              //     side: BorderSide(
+              //       color: Theme.of(context).accentColor,
+              //     )),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -75,10 +83,21 @@ Widget getCommunityListElementWidget(
                   ),
                 );
               },
-              icon: Icon(Icons.info_outline),
-              label: Text("Learn more"),
+              icon: Icon(
+                Icons.info_outline,
+                color: Theme.of(context).accentColor,
+              ),
+              label: Text(
+                "About",
+                style: TextStyle(
+                  color: Theme.of(context).accentColor,
+                ),
+              ),
             ),
             RaisedButton.icon(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
               onPressed: () => launchURL(communityData['joining_url']),
               icon: Icon(Icons.group_add),
               label: Text("Join"),
