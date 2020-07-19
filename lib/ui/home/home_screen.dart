@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:pocket_college/helpers.dart';
 import '../../theme_provider/theme_changer.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 import './grid_details.dart';
 
@@ -135,28 +136,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 colorFilter: darktheme
                     ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
                     : ColorFilter.mode(Colors.white, BlendMode.darken),
-                child: Carousel(
-                  boxFit: BoxFit.fill,
-                  autoplay: true,
-                  autoplayDuration: Duration(seconds: 10),
-                  borderRadius: true,
-                  radius: Radius.circular(16),
-                  animationCurve: Curves.fastOutSlowIn,
-                  animationDuration: Duration(milliseconds: 2500),
-                  dotSize: 5.0,
-                  dotIncreasedColor: Colors.blue,
-                  dotBgColor: Colors.transparent,
-                  dotVerticalPadding: 10.0,
-                  showIndicator: true,
-                  indicatorBgPadding: 7.0,
-                  images: [
-                    NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU'),
-                    NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6h78lYHp1wlzfY7a-TG3d6_my8KCy-9I3Cg&usqp=CAU'),
-                    NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3ZeqJx4xeIkrsJW5EJKXFukGYhCnyYGKl6A&usqp=CAU'),
-                  ],
-                ),
+                child: 
+                
+                // Carousel(
+                //   boxFit: BoxFit.fill,
+                //   autoplay: true,
+                //   autoplayDuration: Duration(seconds: 10),
+                //   borderRadius: true,
+                //   radius: Radius.circular(16),
+                //   animationCurve: Curves.fastOutSlowIn,
+                //   animationDuration: Duration(milliseconds: 2500),
+                //   dotSize: 5.0,
+                //   dotIncreasedColor: Colors.blue,
+                //   dotBgColor: Colors.transparent,
+                //   dotVerticalPadding: 10.0,
+                //   showIndicator: true,
+                //   indicatorBgPadding: 7.0,
+                //   images: [
+                //     NetworkImage(
+                //         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU'),
+                //     NetworkImage(
+                //         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6h78lYHp1wlzfY7a-TG3d6_my8KCy-9I3Cg&usqp=CAU'),
+                //     NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3ZeqJx4xeIkrsJW5EJKXFukGYhCnyYGKl6A&usqp=CAU'),
+                //   ],
+                // ),
               ),
             ),
             // Container(
