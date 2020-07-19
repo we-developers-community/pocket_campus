@@ -165,6 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       aspectRatio: 5/3,
                       autoPlayInterval: Duration(seconds: 5),
                       autoPlayAnimationDuration: Duration(seconds: 3),
+                      enlargeCenterPage: true,
                     ),
                   )
                   // Carousel(
