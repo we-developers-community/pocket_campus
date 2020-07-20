@@ -87,17 +87,18 @@ class CanteenDetails extends StatelessWidget {
       appBar: AppBar(
         title: Text("Canteen Menu"),
       ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            children: [
 
-      body: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children: [
-
-            // for a little headspace 
-            SizedBox(height: 10),
-            
-            ...generateFoodItems(foodItems),
-          ],
+              // for a little headspace 
+              SizedBox(height: 10),
+              
+              ...generateFoodItems(foodItems),
+            ],
+          ),
         ),
       ),
     );
