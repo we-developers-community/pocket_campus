@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import './events.dart';
 
-import 'package:add_2_calendar/add_2_calendar.dart';
 
 class EventListScreen extends StatelessWidget {
   static const routeName = '/events';
@@ -12,7 +11,6 @@ class EventListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final theme = Theme.of(context);
 
     List events = Provider.of<EventList>(context).eventList;
 

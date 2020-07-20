@@ -4,7 +4,6 @@ import 'package:pocket_college/theme_provider/theme_changer.dart';
 import 'package:provider/provider.dart';
 import 'package:pocket_college/helpers.dart';
 import '../../theme_provider/theme_changer.dart';
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import './grid_details.dart';
@@ -222,62 +221,62 @@ class _HomeScreenState extends State<HomeScreen> {
             //     ),
             //   ),
             // ),
-            Container(
-              height: mediaQuery.size.height * 0.35,
-              width: mediaQuery.size.width,
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-              child: Consumer<GridDetails>(
-                builder: (context, gridDetails, child) => GridView.builder(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  itemCount: gridDetails.texts.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    childAspectRatio: 1 / 1,
-                    crossAxisSpacing: 30,
-                    mainAxisSpacing: 30,
-                  ),
-                  itemBuilder: (ctx, index) => InkWell(
-                    onTap: () {
-                      Navigator.of(context)
-                          .pushNamed(gridDetails.className[index]);
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        boxShadow: <BoxShadow>[
-                          BoxShadow(
-                            color: darktheme ? Colors.grey.shade900 : Colors.grey.shade500,
-                            blurRadius: 2.0,
-                            offset: Offset(0, 2),
-                          ),
-                        ],
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: LinearGradient(
-                          colors: darktheme
-                              ? [Colors.grey.shade800, Colors.grey.shade800]
-                              : [Colors.blue, Colors.indigoAccent],
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Icon(
-                            gridDetails.icons[index],
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            '${gridDetails.texts[index]}',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 11,
-                              // letterSpacing: 1.4,
+            Expanded(
+                child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                child: Consumer<GridDetails>(
+                  builder: (context, gridDetails, child) => GridView.builder(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                    itemCount: gridDetails.texts.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      childAspectRatio: 1 / 1,
+                      crossAxisSpacing: 30,
+                      mainAxisSpacing: 30,
+                    ),
+                    itemBuilder: (ctx, index) => InkWell(
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushNamed(gridDetails.className[index]);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                              color: darktheme ? Colors.grey.shade900 : Colors.grey.shade500,
+                              blurRadius: 2.0,
+                              offset: Offset(0, 2),
                             ),
+                          ],
+                          borderRadius: BorderRadius.circular(15),
+                          gradient: LinearGradient(
+                            colors: darktheme
+                                ? [Colors.grey.shade800, Colors.grey.shade800]
+                                : [Colors.blue, Colors.indigoAccent],
                           ),
-                        ],
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              gridDetails.icons[index],
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              '${gridDetails.texts[index]}',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 11,
+                                // letterSpacing: 1.4,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
