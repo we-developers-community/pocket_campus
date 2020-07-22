@@ -9,6 +9,7 @@ Map<String, Map> foodItems = {
     'foodDetails': {
       'Burger': 40,
       'Maggi': 20,
+      'Paratha': 20,
     }
   },
   'Indian Food': {
@@ -28,7 +29,6 @@ Map<String, Map> foodItems = {
   },
 };
 
-
 // Generates list of widgets that will be
 // placed insided the Column widget
 // using the data that will be fetched from server
@@ -46,7 +46,6 @@ List<Widget> generateFoodItems(Map<String, Map> foodItems) {
     foodsMap.forEach((foodName, foodCost) {
       ListTile foodListItem = ListTile(
         title: Text(foodName),
-
         trailing: Chip(
           label: Text("₹ " + foodCost.toString()),
         ),
@@ -58,9 +57,12 @@ List<Widget> generateFoodItems(Map<String, Map> foodItems) {
     // Widget to represent each category
     Card categoryNameCard = Card(
       elevation: 2.0,
-
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       // Wrapped ExpansionTile with Card to add elevation
       child: ExpansionTile(
+        initiallyExpanded: category == foodItems.keys.toList()[0], // Keep the first Tile expanded
         title: Text(category),
         leading: categoryIcon,
 
@@ -79,10 +81,9 @@ List<Widget> generateFoodItems(Map<String, Map> foodItems) {
 // The Main widget
 class CanteenDetails extends StatelessWidget {
   static const routeName = '/canteen';
-  
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Canteen Menu"),
@@ -92,10 +93,9 @@ class CanteenDetails extends StatelessWidget {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-
-              // for a little headspace 
+              // for a little headspace
               SizedBox(height: 10),
-              
+
               ...generateFoodItems(foodItems),
             ],
           ),

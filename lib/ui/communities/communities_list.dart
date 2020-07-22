@@ -5,11 +5,11 @@ import 'package:pocket_college/helpers.dart';
 List<Map> communitiesData = [
   {
     'name': 'Developers Community',
-    'image': "https://via.placeholder.com/200",
+    'image': "https://envri.eu/wp-content/uploads/2016/08/software-developer-copy.jpg",
     'subtitle': 'A community for developers',
     'joining_url': 'https://example.com',
     'more_detail':
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat risus nulla, sed luctus augue auctor nec. In sagittis blandit arcu in volutpat. Quisque tortor justo, vulputate et felis ut, vestibulum posuere ex. Proin semper mauris vel urna elementum convallis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat risus nulla, sed luctus augue auctor nec. In sagittis blandit arcu in volutpat. Quisque tortor justo, vulputate et felis ut, vestibulum posuere ex. Proin semper mauris vel urna elementum convallis., Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat risus nulla, sed luctus augue auctor nec. In sagittis blandit arcu in volutpat. Quisque tortor justo, vulputate et felis ut, vestibulum posuere ex. Proin semper mauris vel urna elementum convallis.',
   },
   {
     'name': 'IEEE',
@@ -33,6 +33,7 @@ Widget getCommunityListElementWidget(
     child: Column(
       children: <Widget>[
         Hero(
+          transitionOnUserGestures: true,
           tag: communityData['name'],
           child: ClipRRect(
             borderRadius: BorderRadius.only(
@@ -69,11 +70,6 @@ Widget getCommunityListElementWidget(
         ButtonBar(
           children: <Widget>[
             FlatButton.icon(
-              // shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(20.0),
-              //     side: BorderSide(
-              //       color: Theme.of(context).accentColor,
-              //     )),
               onPressed: () {
                 Navigator.push(
                   context,

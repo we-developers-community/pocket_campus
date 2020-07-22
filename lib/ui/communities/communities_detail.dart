@@ -12,59 +12,63 @@ class CommunityDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: 20),
-            Center(
-              child: Hero(
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            floating: false,
+            pinned: true,
+            elevation: 2.0,
+            expandedHeight: 250,
+            flexibleSpace: FlexibleSpaceBar(
+              centerTitle: true,
+              title: Text(
+                communityData['name'],
+              ),
+              background: Hero(
+                transitionOnUserGestures: true,
                 tag: communityData['name'],
-                child: Container(
-                  width: 200,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                        communityData['image'],
-                      ),
+                child: Image.network(
+                  communityData['image'],
+                  fit: BoxFit.cover,
+                  color: Colors.grey.shade600.withOpacity(0.8),
+                  colorBlendMode: BlendMode.darken,
+                ),
+              ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                Container(
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  child: Text(
+                    communityData['subtitle'],
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey[500],
+                      fontStyle: FontStyle.italic,
                     ),
                   ),
                 ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
-              child: Text(
-                communityData['name'],
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 22,
+                Divider(
+                  height: 0.2,
                 ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-              child: Text(
-                communityData['subtitle'],
-                style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.grey[500],
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: Text(
+                    communityData['more_detail'],
+                    style: TextStyle(fontSize: 17, height: 1.8),
+                    textAlign: TextAlign.left,
+                  ),
                 ),
-              ),
+                SizedBox(
+                  height: 200,
+                ),
+              ],
             ),
-            Container(
-              padding: EdgeInsets.all(20),
-              child: Text(
-                communityData['more_detail'],
-                style: TextStyle(fontSize: 17, height: 1.8),
-                textAlign: TextAlign.left,
-              ),
-            ),
-          ],
-        ),
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => launchURL(communityData['joining_url']),

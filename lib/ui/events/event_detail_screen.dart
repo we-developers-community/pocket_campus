@@ -26,6 +26,8 @@ class EventDetailScreen extends StatelessWidget {
               child: Image.network(
                 loadedEvent.url,
                 fit: BoxFit.cover,
+                color: Colors.grey.shade500.withOpacity(0.8),
+                colorBlendMode: BlendMode.darken,
               ),
             ),
           ),
