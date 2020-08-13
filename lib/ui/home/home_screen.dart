@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pocket_college/theme_provider/theme_changer.dart';
+import 'package:pocket_college/ui/campus_map/campus_map.dart';
+import 'package:pocket_college/ui/canteen/canteen_screen.dart';
+import 'package:pocket_college/ui/communities/communities_list.dart';
+import 'package:pocket_college/ui/events/event_list_screen.dart';
+import 'package:pocket_college/ui/resources/resources.dart';
 import 'package:provider/provider.dart';
 import 'package:pocket_college/helpers.dart';
 import '../../theme_provider/theme_changer.dart';
@@ -29,32 +34,32 @@ class _HomeScreenState extends State<HomeScreen> {
     final newGrid = [
       {
         'name': 'Academics',
-        'class': 'CommunityListScreen.routeName',
+        'class': CommunityListScreen.routeName,
         'icon': Icons.library_books,
       },
       {
         'name': 'Canteen',
-        'class': 'CanteenDetails.routeName',
+        'class': CanteenDetails.routeName,
         'icon': Icons.local_bar,
       },
       {
         'name': 'Communities',
-        'class': 'CommunityListScreen.routeName',
+        'class': CommunityListScreen.routeName,
         'icon': Icons.supervisor_account,
       },
       {
         'name': 'Events',
-        'class': 'EventListScreen.routeName',
+        'class': EventListScreen.routeName,
         'icon': Icons.event,
       },
       {
         'name': 'Resources',
-        'class': 'ResourcesScreen.routeName',
+        'class': ResourcesScreen.routeName,
         'icon': Icons.apps,
       },
       {
         'name': 'Map',
-        'class': 'CampusMapScreen.routeName',
+        'class': CampusMapScreen.routeName,
         'icon': Icons.map,
       },
     ];

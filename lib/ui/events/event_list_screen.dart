@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import './events.dart';
 
-
 class EventListScreen extends StatelessWidget {
   static const routeName = '/events';
 
@@ -15,74 +14,82 @@ class EventListScreen extends StatelessWidget {
     List events = Provider.of<EventList>(context).eventList;
 
     return Scaffold(
-        appBar: AppBar(
-          //leading: Icon(Icons.event),
-          title: Text('Events'),
-          // actions: <Widget>[
-          //   Padding(
-          //     padding: const EdgeInsets.symmetric( horizontal: 20.0),
-          //     child: Icon(Icons.event, size: 26,),
-          //   ),
-          // ],
-          //automaticallyImplyLeading: true,
-        ),
-        body: Container(
-          child: ListView.builder(
-            itemCount: events.length,
-            itemBuilder: (ctx, index) => Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed(
-                    EventDetailScreen.routeName,
-                    arguments: events[index].id,
-                  );
-                },
-                child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
-                    elevation: 4,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        SizedBox(
-                          height: mediaQuery.size.height * 0.3,
-                          width: mediaQuery.size.width,
-                          child: ClipRRect(
-                            borderRadius:
-                                BorderRadius.vertical(top: Radius.circular(15)),
-                            child: Hero(
-                              transitionOnUserGestures: true,
-                              tag: events[index].id,
-
-                              child: Image.network(
-                                '${events[index].url}',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+      appBar: AppBar(
+        //leading: Icon(Icons.event),
+        title: Text('Events'),
+        actions: <Widget>[
+          // Padding(
+          //   padding: const EdgeInsets.symmetric( horizontal: 20.0),
+          //   child: Icon(Icons.event, size: 26,),
+          // ),
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () => Provider.of<EventList>(context,listen: false).getEvents(),
+          ),
+        ],
+        //automaticallyImplyLeading: true,
+      ),
+      body: Container(
+        child: ListView.builder(
+          itemCount: events.length,
+          itemBuilder: (ctx, index) => Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).pushNamed(
+                  EventDetailScreen.routeName,
+                  arguments: events[index].id,
+                );
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                elevation: 4,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(
+                      height: mediaQuery.size.height * 0.25,
+                      width: mediaQuery.size.width,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(16),
+                        ),
+                        child: Hero(
+                          transitionOnUserGestures: true,
+                          tag: events[index].id,
+                          child: Image.network(
+                            '${events[index].url}',
+                            fit: BoxFit.cover,
                           ),
                         ),
-                        Container(
-                          width: double.maxFinite,
-                          padding: EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.vertical(
-                                bottom: Radius.circular(15),
-                              ),
-                              color: Colors.grey),
-                          child: Text(
-                            '${events[index].title}',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
+                      ),
+                    ),
+                    Container(
+                      width: double.maxFinite,
+                      padding: EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.vertical(
+                          bottom: Radius.circular(16),
                         ),
-                      ],
-                    )),
+                        color: Theme.of(context).primaryColor.withOpacity(0.4),
+                      ),
+                      child: Text(
+                        '${events[index].title}',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
