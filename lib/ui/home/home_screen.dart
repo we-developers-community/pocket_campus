@@ -180,7 +180,8 @@ class _HomeScreenState extends State<HomeScreen> {
               margin: EdgeInsets.symmetric(vertical: 20),
               child: ColorFiltered(
                   colorFilter: darktheme
-                      ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
+                      ? ColorFilter.mode(
+                          Colors.transparent, BlendMode.luminosity)
                       : ColorFilter.mode(Colors.white, BlendMode.darken),
                   child: CarouselSlider.builder(
                     itemCount: carouselImgList.length,
@@ -190,6 +191,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       margin:
                           EdgeInsets.symmetric(vertical: 20, horizontal: 12),
                       decoration: BoxDecoration(
+                        boxShadow: [
+                         BoxShadow(
+                            color: darktheme
+                                ? Colors.grey.shade900
+                                : Colors.grey.shade500,
+                            blurRadius: 2.0,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
                         borderRadius: BorderRadius.circular(16),
                         image: DecorationImage(
                           image: NetworkImage(
@@ -203,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       autoPlay: true,
                       autoPlayCurve: Curves.easeInOut,
                       scrollDirection: Axis.horizontal,
-                      aspectRatio: 5 / 3,
+                      aspectRatio: 8 / 5,
                       autoPlayInterval: Duration(seconds: 5),
                       autoPlayAnimationDuration: Duration(seconds: 3),
                       enlargeCenterPage: true,
