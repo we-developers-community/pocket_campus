@@ -6,8 +6,6 @@ import 'package:pocket_college/helpers.dart';
 import '../../theme_provider/theme_changer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-import './grid_details.dart';
-
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
 
@@ -26,6 +24,39 @@ class _HomeScreenState extends State<HomeScreen> {
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6h78lYHp1wlzfY7a-TG3d6_my8KCy-9I3Cg&usqp=CAU',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3ZeqJx4xeIkrsJW5EJKXFukGYhCnyYGKl6A&usqp=CAU',
+    ];
+
+    final newGrid = [
+      {
+        'name': 'Academics',
+        'class': 'CommunityListScreen.routeName',
+        'icon': Icons.library_books,
+      },
+      {
+        'name': 'Canteen',
+        'class': 'CanteenDetails.routeName',
+        'icon': Icons.local_bar,
+      },
+      {
+        'name': 'Communities',
+        'class': 'CommunityListScreen.routeName',
+        'icon': Icons.supervisor_account,
+      },
+      {
+        'name': 'Events',
+        'class': 'EventListScreen.routeName',
+        'icon': Icons.event,
+      },
+      {
+        'name': 'Resources',
+        'class': 'ResourcesScreen.routeName',
+        'icon': Icons.apps,
+      },
+      {
+        'name': 'Map',
+        'class': 'CampusMapScreen.routeName',
+        'icon': Icons.map,
+      },
     ];
 
     return Scaffold(
@@ -156,10 +187,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         image: DecorationImage(
-                            image: NetworkImage(
-                              carouselImgList[index1],
-                            ),
-                            fit: BoxFit.fill),
+                          image: NetworkImage(
+                            carouselImgList[index1],
+                          ),
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                     options: CarouselOptions(
@@ -222,61 +254,61 @@ class _HomeScreenState extends State<HomeScreen> {
             //   ),
             // ),
             Expanded(
-                child: Container(
+              child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                child: Consumer<GridDetails>(
-                  builder: (context, gridDetails, child) => GridView.builder(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                    itemCount: gridDetails.texts.length,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      childAspectRatio: 1 / 1,
-                      crossAxisSpacing: 30,
-                      mainAxisSpacing: 30,
-                    ),
-                    itemBuilder: (ctx, index) => InkWell(
-                      onTap: () {
-                        Navigator.of(context)
-                            .pushNamed(gridDetails.className[index]);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          boxShadow: <BoxShadow>[
-                            BoxShadow(
-                              color: darktheme ? Colors.grey.shade900 : Colors.grey.shade500,
-                              blurRadius: 2.0,
-                              offset: Offset(0, 2),
-                            ),
-                          ],
-                          borderRadius: BorderRadius.circular(15),
-                          gradient: LinearGradient(
-                            colors: darktheme
-                                ? [Colors.grey.shade800, Colors.grey.shade800]
-                                : [Colors.blue, Colors.indigoAccent],
+                child: GridView.builder(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  itemCount: newGrid.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    childAspectRatio: 1 / 1,
+                    crossAxisSpacing: 30,
+                    mainAxisSpacing: 30,
+                  ),
+                  itemBuilder: (ctx, index) => InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(newGrid[index]['class']);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                            color: darktheme
+                                ? Colors.grey.shade900
+                                : Colors.grey.shade500,
+                            blurRadius: 2.0,
+                            offset: Offset(0, 2),
                           ),
+                        ],
+                        borderRadius: BorderRadius.circular(15),
+                        gradient: LinearGradient(
+                          colors: darktheme
+                              ? [Colors.grey.shade800, Colors.grey.shade800]
+                              : [Colors.blue, Colors.indigoAccent],
                         ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Icon(
-                              gridDetails.icons[index],
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(
+                            newGrid[index]['icon'],
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            // '${gridDetails.texts[index]}'
+                            '${newGrid[index]['name']}',
+                            style: TextStyle(
                               color: Colors.white,
+                              fontSize: 11,
+                              // letterSpacing: 1.4,
                             ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              '${gridDetails.texts[index]}',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 11,
-                                // letterSpacing: 1.4,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
