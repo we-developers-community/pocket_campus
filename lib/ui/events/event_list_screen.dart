@@ -4,9 +4,19 @@ import 'package:provider/provider.dart';
 
 import './events.dart';
 
-class EventListScreen extends StatelessWidget {
+class EventListScreen extends StatefulWidget {
   static const routeName = '/events';
 
+  @override
+  _EventListScreenState createState() => _EventListScreenState();
+}
+
+class _EventListScreenState extends State<EventListScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<EventList>(context,listen: false).getEvents();
+  }
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -17,17 +27,6 @@ class EventListScreen extends StatelessWidget {
       appBar: AppBar(
         //leading: Icon(Icons.event),
         title: Text('Events'),
-        actions: <Widget>[
-          // Padding(
-          //   padding: const EdgeInsets.symmetric( horizontal: 20.0),
-          //   child: Icon(Icons.event, size: 26,),
-          // ),
-          IconButton(
-            icon: Icon(Icons.refresh),
-            onPressed: () => Provider.of<EventList>(context,listen: false).getEvents(),
-          ),
-        ],
-        //automaticallyImplyLeading: true,
       ),
       body: Container(
         child: ListView.builder(
@@ -50,7 +49,7 @@ class EventListScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     SizedBox(
-                      height: mediaQuery.size.height * 0.25,
+                      height: mediaQuery.size.height * 0.20,
                       width: mediaQuery.size.width,
                       child: ClipRRect(
                         borderRadius: BorderRadius.vertical(
