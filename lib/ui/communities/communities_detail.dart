@@ -1,80 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_college/helpers.dart';
+import 'package:provider/provider.dart';
 
-class CommunityDetailScreen extends StatelessWidget {
-  final Map communityData;
+import './communities.dart';
 
-  CommunityDetailScreen({Key key, @required this.communityData})
-      : super(key: key);
-
+class CommunitiesDetailScreen extends StatelessWidget {
   static const routeName = '/community-detail';
-
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context).settings.arguments as String;
+    var loadedCommunities = Provider.of<CommunityList>(context).findById(args);
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            floating: false,
-            pinned: true,
-            elevation: 2.0,
-            expandedHeight: 250,
-            flexibleSpace: FlexibleSpaceBar(
-              centerTitle: true,
-              title: Text(
-                communityData['name'],
-              ),
-              background: Hero(
-                transitionOnUserGestures: true,
-                tag: communityData['name'],
-                child: Image.network(
-                  communityData['image'],
-                  fit: BoxFit.cover,
-                  color: Colors.grey.shade600.withOpacity(0.8),
-                  colorBlendMode: BlendMode.darken,
-                ),
+        body: CustomScrollView(
+      slivers: <Widget>[
+        SliverAppBar(
+          expandedHeight: 250,
+          pinned: true,
+          flexibleSpace: FlexibleSpaceBar(
+            centerTitle: false,
+            title: Text(
+              loadedCommunities.title,
+            ),
+            background: Hero(
+              transitionOnUserGestures: true,
+              tag: loadedCommunities.id,
+              child: Image.network(
+                loadedCommunities.url,
+                fit: BoxFit.cover,
+                color: Colors.grey.shade500.withOpacity(0.8),
+                colorBlendMode: BlendMode.darken,
               ),
             ),
           ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                Container(
-                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                  child: Text(
-                    communityData['subtitle'],
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[500],
-                      fontStyle: FontStyle.italic,
-                    ),
+        ),
+        SliverList(
+          delegate: SliverChildListDelegate(
+            [
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+                child: Text(
+                  'Description',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Divider(
-                  height: 0.2,
-                ),
-                Container(
-                  padding: EdgeInsets.all(20),
-                  child: Text(
-                    communityData['more_detail'],
-                    style: TextStyle(fontSize: 17, height: 1.8),
-                    textAlign: TextAlign.left,
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Text(
+                  loadedCommunities.description,
+                  style: TextStyle(
+                    fontSize: 18,
                   ),
                 ),
-                SizedBox(
-                  height: 200,
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Text(
+                  'Get in touch',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ],
-            ),
-          )
-        ],
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => launchURL(communityData['joining_url']),
-        icon: Icon(Icons.group_add),
-        label: Text("Join"),
-      ),
-    );
+              ),
+              Container(
+                height: 500,
+                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Text(
+                  loadedCommunities.website,
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ));
   }
 }

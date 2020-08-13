@@ -7,6 +7,8 @@ import './theme_provider/theme_changer.dart';
 
 import './ui/resources/resources.dart';
 import './ui/communities/communities_list.dart';
+import './ui/communities/communities.dart';
+import './ui/communities/communities_detail.dart';
 import './ui/home/home_screen.dart';
 import './ui/canteen/canteen_screen.dart';
 import './ui/events/event_list_screen.dart';
@@ -37,6 +39,9 @@ class MaterialWidget extends StatelessWidget {
     var theme = Provider.of<ThemeChanger>(context);
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider.value(
+          value: CommunityList(),
+        ),
         ChangeNotifierProvider.value(
           value: EventList(),
         ),
@@ -69,6 +74,7 @@ class MaterialWidget extends StatelessWidget {
           EventListScreen.routeName: (ctx) => EventListScreen(),
           EventDetailScreen.routeName: (ctx) => EventDetailScreen(),
           CommunityListScreen.routeName: (ctx) => CommunityListScreen(),
+          CommunitiesDetailScreen.routeName: (ctx) => CommunitiesDetailScreen(),
           ResourcesScreen.routeName: (ctx) => ResourcesScreen(),
           CampusMapScreen.routeName: (ctx) => CampusMapScreen(),
         },
