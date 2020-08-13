@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 : Icon(
                     Icons.wb_incandescent,
-                    color: Colors.yellowAccent.shade100,
+                    color: Colors.blue.shade50,
                   ),
             onPressed: () {
               if (darktheme == false) {
@@ -189,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: mediaQuery.size.height * 0.3,
                       width: mediaQuery.size.width,
                       margin:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 12),
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 0),
                       decoration: BoxDecoration(
                         boxShadow: [
                          BoxShadow(
@@ -213,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       autoPlay: true,
                       autoPlayCurve: Curves.easeInOut,
                       scrollDirection: Axis.horizontal,
-                      aspectRatio: 8 / 5,
+                      aspectRatio: 4 / 3,
                       autoPlayInterval: Duration(seconds: 5),
                       autoPlayAnimationDuration: Duration(seconds: 3),
                       enlargeCenterPage: true,
@@ -298,7 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(15),
                         gradient: LinearGradient(
                           colors: darktheme
-                              ? [Colors.grey.shade800, Colors.grey.shade800]
+                              ? [Colors.grey.shade700, Colors.grey.shade800]
                               : [Colors.blue, Colors.indigoAccent],
                         ),
                       ),
