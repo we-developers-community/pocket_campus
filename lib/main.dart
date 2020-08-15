@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pocket_college/ui/campus_map/campus_map.dart';
 import 'package:provider/provider.dart';
-
-import './theme_provider/theme_changer.dart';
-
+import 'package:get/get.dart';
 import './ui/resources/resources.dart';
 import './ui/communities/communities_list.dart';
 import './ui/communities/communities.dart';
@@ -14,29 +12,32 @@ import './ui/canteen/canteen_screen.dart';
 import './ui/events/event_list_screen.dart';
 import './ui/events/events.dart';
 import './ui/events/event_detail_screen.dart';
+import 'helpers/theme_defaults.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
-    runApp(MyApp());
+    runApp(RootApp());
   });
 }
 
-class MyApp extends StatelessWidget {
+
+class RootApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ThemeChanger>(
-      create: (_) => ThemeChanger(ThemeMode.light),
-      child: MaterialWidget(),
-    );
-  }
+  _RootAppState createState() => _RootAppState();
 }
 
-class MaterialWidget extends StatelessWidget {
+class _RootAppState extends State<RootApp> {
+
+
+  void initState() {
+    super.initState();
+    setInitialThemeMode();
+  }
+
   @override
   Widget build(BuildContext context) {
-    var theme = Provider.of<ThemeChanger>(context);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
@@ -46,7 +47,7 @@ class MaterialWidget extends StatelessWidget {
           value: EventList(),
         ),
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Pocket Campus',
         theme: ThemeData(
@@ -66,8 +67,7 @@ class MaterialWidget extends StatelessWidget {
             backgroundColor: Colors.blue,
           ),
         ),
-        themeMode: theme.getTheme(),
-        home: HomeScreen(),
+        initialRoute: HomeScreen.routeName,
         routes: {
           HomeScreen.routeName: (ctx) => HomeScreen(),
           CanteenDetails.routeName: (ctx) => CanteenDetails(),

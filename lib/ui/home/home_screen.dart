@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:pocket_college/theme_provider/theme_changer.dart';
+import 'package:pocket_college/helpers/theme_defaults.dart';
 import 'package:pocket_college/ui/campus_map/campus_map.dart';
 import 'package:pocket_college/ui/canteen/canteen_screen.dart';
 import 'package:pocket_college/ui/communities/communities_list.dart';
 import 'package:pocket_college/ui/events/event_list_screen.dart';
 import 'package:pocket_college/ui/resources/resources.dart';
-import 'package:provider/provider.dart';
 import 'package:pocket_college/helpers.dart';
-import '../../theme_provider/theme_changer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
@@ -19,11 +18,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool darktheme = false;
   @override
   Widget build(BuildContext context) {
+    bool darktheme = Theme.of(context).brightness == Brightness.dark;
+
+    Color bulbColor = Colors.blue.shade50;
+    ColorFilter carouselColorFilter =
+        ColorFilter.mode(Colors.white, BlendMode.darken);
+    List<Color> colorGradients = [Colors.blue, Colors.indigoAccent];
+    Color shadowColor = Colors.grey.shade500;
+
+    // Values for dark theme
+    if (darktheme) {
+      bulbColor = Colors.grey[400];
+      carouselColorFilter =
+          ColorFilter.mode(Colors.transparent, BlendMode.luminosity);
+      colorGradients = [Colors.grey.shade700, Colors.grey.shade800];
+      shadowColor = Colors.grey.shade900;
+    }
+
     final mediaQuery = MediaQuery.of(context);
-    var themeChanger = Provider.of<ThemeChanger>(context);
 
     final carouselImgList = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU',
@@ -69,28 +83,18 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Pocket Campus'),
         actions: <Widget>[
           IconButton(
-            icon: darktheme
-                ? Icon(
-                    Icons.wb_incandescent,
-                    color: Colors.grey[400],
-                  )
-                : Icon(
-                    Icons.wb_incandescent,
-                    color: Colors.blue.shade50,
-                  ),
+            icon: Icon(
+              Icons.wb_incandescent,
+              color: bulbColor,
+            ),
             onPressed: () {
-              if (darktheme == false) {
-                themeChanger.setTheme(ThemeMode.dark);
-                setState(() {
-                  darktheme = true;
-                });
-                print(darktheme);
+              
+              if (darktheme) {
+                setGlobalTheme(ThemeMode.light);
               } else {
-                themeChanger.setTheme(ThemeMode.light);
-                setState(() {
-                  darktheme = false;
-                });
+                setGlobalTheme(ThemeMode.dark);
               }
+
             },
           ),
           IconButton(
@@ -179,23 +183,17 @@ class _HomeScreenState extends State<HomeScreen> {
               width: mediaQuery.size.width,
               margin: EdgeInsets.symmetric(vertical: 20),
               child: ColorFiltered(
-                  colorFilter: darktheme
-                      ? ColorFilter.mode(
-                          Colors.transparent, BlendMode.luminosity)
-                      : ColorFilter.mode(Colors.white, BlendMode.darken),
+                  colorFilter: carouselColorFilter,
                   child: CarouselSlider.builder(
                     itemCount: carouselImgList.length,
                     itemBuilder: (context, index1) => Container(
                       height: mediaQuery.size.height * 0.3,
                       width: mediaQuery.size.width,
-                      margin:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+                      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 0),
                       decoration: BoxDecoration(
                         boxShadow: [
-                         BoxShadow(
-                            color: darktheme
-                                ? Colors.grey.shade900
-                                : Colors.grey.shade500,
+                          BoxShadow(
+                            color: shadowColor,
                             blurRadius: 2.0,
                             offset: Offset(0, 2),
                           ),
@@ -249,18 +247,14 @@ class _HomeScreenState extends State<HomeScreen> {
             //   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             //   decoration: BoxDecoration(
             //     gradient: LinearGradient(
-            //       colors: darktheme
-            //           ? [Colors.grey.shade900, Colors.grey.shade900]
-            //           : [Colors.blue, Colors.indigoAccent],
+            //       colors: colorGradients,
             //     ),
             //     borderRadius: BorderRadius.circular(15),
             //   ),
             //   child: ClipRRect(
             //     borderRadius: BorderRadius.circular(15),
             //     child: ColorFiltered(
-            //       colorFilter: darktheme
-            //           ? ColorFilter.mode(Colors.black26, BlendMode.luminosity)
-            //           : ColorFilter.mode(Colors.white, BlendMode.darken),
+            //       colorFilter: carouselColorFilter,
             //       child: Image.network(
             //         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkaqXbA0rN7lUU5jqZwCgKzk8vEOpdZv1FVPVEuDKoFylXpwJt&usqp=CAU',
             //         fit: BoxFit.fill,
@@ -288,19 +282,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                            color: darktheme
-                                ? Colors.grey.shade900
-                                : Colors.grey.shade500,
+                            color: shadowColor,
                             blurRadius: 2.0,
                             offset: Offset(0, 2),
                           ),
                         ],
                         borderRadius: BorderRadius.circular(15),
-                        gradient: LinearGradient(
-                          colors: darktheme
-                              ? [Colors.grey.shade700, Colors.grey.shade800]
-                              : [Colors.blue, Colors.indigoAccent],
-                        ),
+                        gradient: LinearGradient(colors: colorGradients),
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
