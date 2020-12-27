@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:animated_splash/animated_splash.dart';
 import 'package:flutter/services.dart';
 import 'package:pocket_college/ui/campus_map/campus_map.dart';
 import 'package:provider/provider.dart';
@@ -18,10 +19,18 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
-    runApp(RootApp());
+    runApp(
+      MaterialApp(
+        debugShowCheckedModeBanner: false,
+          home: AnimatedSplash(
+        imagePath: 'assets/icon.png',
+        home: RootApp(),
+        duration: 1500,
+        type: AnimatedSplashType.StaticDuration,
+      )),
+    );
   });
 }
-
 
 class RootApp extends StatefulWidget {
   @override
@@ -29,8 +38,6 @@ class RootApp extends StatefulWidget {
 }
 
 class _RootAppState extends State<RootApp> {
-
-
   void initState() {
     super.initState();
     setInitialThemeMode();
