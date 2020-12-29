@@ -33,7 +33,7 @@ class EventList with ChangeNotifier {
   }
 
   Future<void> getEvents() async {
-    const url = 'https://pocket-campus-48751.firebaseio.com/Events.json';
+    const url = 'https://pocket-campus.firebaseio.com/Events.json';
 
     try {
       final res = await http.get(url);

@@ -40,11 +40,12 @@ class CommunityList with ChangeNotifier {
   }
 
   Future<void> getCommunities() async {
-    const url = 'https://pocket-campus-48751.firebaseio.com/Communities.json';
+    const url = 'https://pocket-campus.firebaseio.com/Communities.json';
 
     try {
       final res = await http.get(url);
       final resData = json.decode(res.body) as Map<String, dynamic>;
+
       resData.forEach(
         (key, value) {
           _communityList.add(
@@ -58,10 +59,11 @@ class CommunityList with ChangeNotifier {
           );
         },
       );
+      
       notifyListeners();
     } catch (error) {
       print(error);
-      throw(error);
+      throw (error);
     }
   }
 }
