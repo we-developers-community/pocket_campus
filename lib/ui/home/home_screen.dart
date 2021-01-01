@@ -303,7 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 5,
                           ),
                           Text(
-                            // '${gridDetails.texts[index]}'
+                            // '${gridDetails.texts[index]}'  
                             '${newGrid[index]['name']}',
                             style: TextStyle(
                               color: Colors.white,

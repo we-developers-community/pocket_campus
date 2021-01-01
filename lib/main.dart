@@ -4,6 +4,7 @@ import 'package:pocket_college/ui/campus_map/campus_map.dart';
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 import './ui/resources/resources.dart';
+import './ui/splash_screen.dart';
 import './ui/communities/communities_list.dart';
 import './ui/communities/communities.dart';
 import './ui/communities/communities_detail.dart';
@@ -67,8 +68,9 @@ class _RootAppState extends State<RootApp> {
             backgroundColor: Colors.blue,
           ),
         ),
-        initialRoute: HomeScreen.routeName,
+        initialRoute: MySplashScreen.routeName,
         routes: {
+          MySplashScreen.routeName: (ctx) => MySplashScreen(),
           HomeScreen.routeName: (ctx) => HomeScreen(),
           CanteenDetails.routeName: (ctx) => CanteenDetails(),
           EventListScreen.routeName: (ctx) => EventListScreen(),
